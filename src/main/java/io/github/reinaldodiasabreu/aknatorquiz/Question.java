@@ -22,60 +22,83 @@
  * THE SOFTWARE.
  */
 package io.github.reinaldodiasabreu.aknatorquiz;
-import java.util.ArrayList;
-import java.util.List;
+
+import java.io.Serializable;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Transient;
 
 /**
  *
  * @author hal
  */
-public class Question {
-    private static Long id = 0L;
+@Entity
+@Table(name="TblQuestion")
+public class Question implements Serializable{
     
-    private Long code;
+    private static final long serialVersionUID = 1L;
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    
+    @Column(length = 500, nullable = false)
     private String text;
-    private List<Option> options;
-
+    
+    @Column(nullable = false)
+    private Boolean answer;
+    
+    @Transient
+    private Boolean answer_user;
+    
+   
     public Question(){
-        code = ++id;
-        options = new ArrayList<>();
+        
     }
     
     public Question(String text){
         this();
         this.text = text;
     }
-    
-    public Long getCode() {
-        return code;
+
+    public Long getId() {
+        return id;
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Boolean getAnswer() {
+        return answer;
+    }
+
+    public void setAnswer(Boolean answer) {
+        this.answer = answer;
+    }
+
+    public Boolean getAnswer_user() {
+        return answer_user;
+    }
+
+    public void setAnswer_user(Boolean answer_user) {
+        this.answer_user = answer_user;
+    }
+    
     public String getText() {
         return text;
-    }
-
-    public List<Option> getOptions() {
-        return options;
-    }
-
-    public void setCode(Long code) {
-        this.code = code;
     }
 
     public void setText(String text) {
         this.text = text;
     }
 
-    public void setOptions(List<Option> options) {
-        this.options = options;
-    }
-    
     public int getScore(){
-        for(Option o: options){
-            if(o.getMarked())
-                return o.getPoints();
-        }
-        
+       
         return 0;
     }
 }

@@ -23,23 +23,44 @@
  */
 package io.github.reinaldodiasabreu.aknatorquiz;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 /**
  *
  * @author hal
  */
-public class Quiz {
-    private static Long id = 0L;
+@Entity
+@Table(name="TblQuiz")
+public class Quiz implements Serializable{
+    private static final long serialVersionUID = 1L;
     
-    private Long code;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    @Column(length = 100, nullable = false)
     private String title;
+    @Column(length = 250, nullable = false)
     private String description;
+    
+    @OneToMany(
+        cascade = CascadeType.ALL,
+        orphanRemoval = true    
+    )
+    @JoinColumn(name = "quiz_id")
     private List<Question> questions;
 
     public Quiz(){ 
-        code = ++id;
         questions = new ArrayList<>();
     }
     
@@ -48,9 +69,13 @@ public class Quiz {
         this.title = title;
         this.description = description;
     }
-    
-    public Long getCode() {
-        return code;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getTitle() {
@@ -63,10 +88,6 @@ public class Quiz {
 
     public List<Question> getQuestions() {
         return questions;
-    }
-
-    public void setCode(Long code) {
-        this.code = code;
     }
 
     public void setTitle(String title) {

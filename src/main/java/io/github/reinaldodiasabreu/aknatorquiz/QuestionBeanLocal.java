@@ -1,7 +1,7 @@
 /*
  * The MIT License
  *
- * Copyright 2021 hal.
+ * Copyright 2021 Reinaldo Junio Dias de Abreu <rjdda at aluno.ifnmg.edu.br>.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,58 +23,14 @@
  */
 package io.github.reinaldodiasabreu.aknatorquiz;
 
+import javax.ejb.Local;
+
 /**
  *
- * @author hal
+ * @author Reinaldo Junio Dias de Abreu <rjdda at aluno.ifnmg.edu.br>
  */
-public class Option {
-    private static Long id = 0l;
-    
-    private Long code;
-    private String text;
-    private int points;
-    private boolean marked;
-
-    public Option(){
-        code = ++id;
-    }
-    
-    public Option(String text, int points, boolean marked){
-        this();
-        this.text = text;
-        this.points = points;
-        this.marked = marked;
-    }
-    
-    public Long getCode() {
-        return code;
-    }
-
-    public String getText() {
-        return text;
-    }
-
-    public int getPoints() {
-        return points;
-    }
-    
-    public boolean getMarked(){
-        return marked;
-    }
-
-    public void setCode(Long code) {
-        this.code = code;
-    }
-
-    public void setText(String text) {
-        this.text = text;
-    }
-
-    public void setPoints(int points) {
-        this.points = points;
-    }
-    
-    public void setMarked(boolean marked) {
-        this.marked = marked;
-    }
+@Local
+public interface QuestionBeanLocal {
+    void save(Question questao);
+    Question find(Long id);
 }
