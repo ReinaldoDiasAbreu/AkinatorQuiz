@@ -23,6 +23,7 @@
  */
 package io.github.reinaldodiasabreu.aknatorquiz;
 
+import java.util.List;
 import javax.ejb.Local;
 
 /**
@@ -33,4 +34,5 @@ import javax.ejb.Local;
 public interface QuizBeanLocal {
     void save(Quiz quiz);
     Quiz find(Long id);
+    List<Quiz> findAll();
 }

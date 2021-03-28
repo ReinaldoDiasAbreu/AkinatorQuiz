@@ -23,14 +23,17 @@
  */
 package io.github.reinaldodiasabreu.aknatorquiz;
 
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 
 /**
  *
  * @author Reinaldo Junio Dias de Abreu <rjdda at aluno.ifnmg.edu.br>
  */
+
 @Stateless
 public class QuizBean implements QuizBeanLocal {
 
@@ -45,5 +48,11 @@ public class QuizBean implements QuizBeanLocal {
     @Override
     public Quiz find(Long id) {
         return entityManager.find(Quiz.class, id);
+    }
+
+    @Override
+    public List<Quiz> findAll() {
+        TypedQuery<Quiz> tQuery = entityManager.createQuery("SELECT q FROM Quiz q", Quiz.class);
+        return tQuery.getResultList();
     }
 }

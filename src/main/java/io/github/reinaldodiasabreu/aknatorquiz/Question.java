@@ -59,6 +59,12 @@ public class Question implements Serializable{
     public Question(){
         
     }
+
+    public Question(String text, Boolean answer) {
+        this.text = text;
+        this.answer = answer;
+    }
+    
     
     public Question(String text){
         this();
@@ -101,4 +107,12 @@ public class Question implements Serializable{
        
         return 0;
     }
+
+    @Override
+    public String toString() {
+        return "Question{" + "id=" + id + ", text=" + text + ", answer=" + answer + ", answer_user=" + answer_user + '}';
+    }
+    
+    
+    
 }
