@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./WEB-INF/templates/template.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns="http://www.w3.org/1999/xhtml">
+
+    <ui:define name="content">
+        <div class="content-main">
+            <h2> 
+                <h:outputFormat value="#{i18n.main_hello}">
+                    <f:param value="#{empty userQuizBean.nome ? i18n.user_not_logged : userQuizBean.nome}"/>
+                </h:outputFormat>             
+            </h2>
+
+            <div id="lista-quiz">
+                <table>
+                    <tr>
+                      <th width="15%">Assunto</th>
+                      <th></th>
+                    </tr>
+                    <tr>
+                        <td><p>#{i18n.quiz_tecnologia}</p></td>
+                        <td>
+                            <h:form>
+                                <h:commandButton action="main" value="#{i18n.btn_play}" />
+                            </h:form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><p>#{i18n.quiz_tecnologia}</p></td>
+                        <td>
+                            <h:form>
+                                <h:commandButton action="main" value="#{i18n.btn_play}" />
+                            </h:form>
+                        </td>
+                    </tr>
+              </table>
+            </div>
+        </div>
+       
+        
+    </ui:define>
+
+</ui:composition>

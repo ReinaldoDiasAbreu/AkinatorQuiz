@@ -1,0 +1,92 @@
+/*
+The MIT License
+
+Copyright 2021 Reinaldo Junio Dias de Abreu <rjdda at aluno.ifnmg.edu.br>.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+*/
+/* 
+    Created on : 26 de mar de 2021, 13:37:03
+    Author     : Reinaldo Junio Dias de Abreu <rjdda at aluno.ifnmg.edu.br>
+*/
+
+/* Definição do header */
+
+header#top{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header#top div.title{
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+form#language {
+    margin-bottom: .75em;
+}
+
+img.flagicon {
+    float: right;
+    height: 2em;
+    margin-top: 0;
+    margin-right: .2em;
+}
+
+img.logo{
+    height: 10em;
+}
+
+input[type=submit].guess {
+    width: 3em;
+}
+
+/* Definição do footer */
+
+footer#bottom p{
+    display: flex;
+    justify-content: center;
+    font-family: Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
+    font-size: 1rem;
+}
+
+/* Definição da pag Welcome */
+
+div.content-welcome{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+div.content-welcome #msg_welcome p{
+    font-family: Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
+    text-align: justify;
+    font-size: 1rem;
+}
+
+div.content-welcome #login{
+    margin-left: 2rem;
+}
