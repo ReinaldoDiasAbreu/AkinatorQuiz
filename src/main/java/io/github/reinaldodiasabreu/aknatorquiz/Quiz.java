@@ -24,6 +24,7 @@
 package io.github.reinaldodiasabreu.aknatorquiz;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -34,7 +35,7 @@ public class Quiz {
     private static Long id = 0L;
     
     private Long code;
-    private String title;
+    private HashMap<String, String> title;
     private String description;
     private List<Question> questions;
 
@@ -43,18 +44,12 @@ public class Quiz {
         questions = new ArrayList<>();
     }
     
-    public Quiz(String title, String description){
-        this();
-        this.title = title;
-        this.description = description;
-    }
-    
     public Long getCode() {
         return code;
     }
 
-    public String getTitle() {
-        return title;
+    public String getTitle(String lang) {
+        return title.get(lang);
     }
 
     public String getDescription() {
@@ -69,8 +64,8 @@ public class Quiz {
         this.code = code;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setTitle(String lang, String title) {
+        this.title.put(lang, title);
     }
 
     public void setDescription(String description) {
@@ -81,12 +76,4 @@ public class Quiz {
         this.questions = questions;
     }
     
-    public int getTotalScore(){
-        int score = 0;
-        
-        for(Question q: questions)
-            score += q.getScore();
-        
-        return score;
-    }
 }

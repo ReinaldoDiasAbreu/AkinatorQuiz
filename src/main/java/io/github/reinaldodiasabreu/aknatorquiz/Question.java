@@ -23,6 +23,7 @@
  */
 package io.github.reinaldodiasabreu.aknatorquiz;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -33,49 +34,37 @@ public class Question {
     private static Long id = 0L;
     
     private Long code;
-    private String text;
-    private List<Option> options;
+    private HashMap<String, String> text;
+    private boolean answer;
 
     public Question(){
         code = ++id;
-        options = new ArrayList<>();
     }
     
-    public Question(String text){
-        this();
-        this.text = text;
-    }
     
     public Long getCode() {
         return code;
     }
 
-    public String getText() {
-        return text;
+    public String getText(String lang) {
+        return text.get(lang);
+    }
+    
+    public boolean getAnswer(){
+        return this.answer;
     }
 
-    public List<Option> getOptions() {
-        return options;
-    }
 
     public void setCode(Long code) {
         this.code = code;
     }
 
-    public void setText(String text) {
-        this.text = text;
+    public void setText(String lang, String text) {
+        this.text.put(lang, text);
     }
 
-    public void setOptions(List<Option> options) {
-        this.options = options;
+    public void setAnswer(boolean answer){
+        this.answer = answer;
     }
-    
-    public int getScore(){
-        for(Option o: options){
-            if(o.getMarked())
-                return o.getPoints();
-        }
-        
-        return 0;
-    }
+
 }
