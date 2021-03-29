@@ -96,6 +96,32 @@ public class InsertQuiz extends HttpServlet {
             quiz2.setQuestions(questoes2);
             QuizBean.save(quiz2);
             
+            /* ########### Quiz Anatomia ###########  */
+            
+            Quiz quiz3 = new Quiz("Anatomy test", "What do you know about the human body?", "Teste sobre anatomia", "O que você sabe sobre anatomia?");
+            
+            List<Question> questoes3 = new ArrayList<>();
+            questoes3.add(new Question("Unhas humanas não servem para escalar paredes.",true));
+            questoes3.add(new Question("O ombro humano é adaptado para resistir a choques de carros desgovernados.",false));
+            questoes3.add(new Question("Não é uma boa idéia lamber postes gelados.",true));
+            questoes3.add(new Question("A língua é um músculo.",true));
+            questoes3.add(new Question("Sobrancelhas só crescem se você rapá-las.",true));
+            quiz3.setQuestions(questoes3);
+            QuizBean.save(quiz3);
+            
+            /* ########### Quiz Natureza ###########  */
+            
+            Quiz quiz4 = new Quiz("Anatomy test", "What do you know about the human body?", "Teste sobre anatomia", "O que você sabe sobre anatomia?");
+            
+            List<Question> questoes4 = new ArrayList<>();
+            questoes3.add(new Question("Se fingir de morto ao afundar faz a água achar que você está morto e deixar que você flutue de volta.",false));
+            questoes3.add(new Question("Lascas de granito são uma ótima fonte de proteína.",false));
+            questoes3.add(new Question("Abelhas se comunicam via LSA, ou Línguagem de Sinais Apícola.",false));
+            questoes3.add(new Question("Leõs são extremamente competitivos no boliche.",false));
+            questoes3.add(new Question("Não é uma boa ideia enviar sinais de dominância na frente de um gorila.",true));
+            quiz4.setQuestions(questoes4);
+            QuizBean.save(quiz4);
+            
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");

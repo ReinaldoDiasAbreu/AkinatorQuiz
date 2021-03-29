@@ -5,7 +5,8 @@
     template="./WEB-INF/templates/template.xhtml"
     xmlns="http://www.w3.org/1999/xhtml"
     xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-    xmlns:h="http://xmlns.jcp.org/jsf/html">
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:f="http://xmlns.jcp.org/jsf/core">
     
     <ui:define name="content">
         
@@ -30,6 +31,16 @@
 
                 </h:form>
             </div>
+        </div>
+        <div id="quiz-links">
+            <h3>#{i18n.available}</h3>
+            <div>
+                <h:link outcome="quiz1">Quiz 1</h:link>
+                <h:link outcome="quiz2">Quiz 2</h:link>
+                <h:link outcome="quiz3">Quiz 3</h:link>
+                <h:link outcome="quiz4">Quiz 4</h:link>
+            </div>
+            
         </div>
 
     </ui:define>

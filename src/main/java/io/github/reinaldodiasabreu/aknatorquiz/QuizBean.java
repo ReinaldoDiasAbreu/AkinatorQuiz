@@ -25,6 +25,7 @@ package io.github.reinaldodiasabreu.aknatorquiz;
 
 import java.util.List;
 import javax.ejb.Stateless;
+import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
@@ -34,6 +35,7 @@ import javax.persistence.TypedQuery;
  * @author Reinaldo Junio Dias de Abreu <rjdda at aluno.ifnmg.edu.br>
  */
 
+@Named
 @Stateless
 public class QuizBean implements QuizBeanLocal {
 
@@ -43,6 +45,7 @@ public class QuizBean implements QuizBeanLocal {
     @Override
     public void save(Quiz quiz) {
         entityManager.persist(quiz);
+        System.out.println("Saving...");
     }
 
     @Override
