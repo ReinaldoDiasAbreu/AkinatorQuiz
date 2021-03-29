@@ -51,9 +51,13 @@ public class Quiz implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(length = 100, nullable = false)
-    private String title;
+    private String titleEN;
     @Column(length = 250, nullable = false)
-    private String description;
+    private String descriptionEN;
+    @Column(length = 100, nullable = false)
+    private String titlePT;
+    @Column(length = 250, nullable = false)
+    private String descriptionPT;
     
     @OneToMany(
         cascade = CascadeType.ALL,
@@ -66,10 +70,12 @@ public class Quiz implements Serializable{
         questions = new ArrayList<>();
     }
     
-    public Quiz(String title, String description){
+    public Quiz(String titleEN, String descriptionEN, String titlePT, String descriptionPT){
         this();
-        this.title = title;
-        this.description = description;
+        this.titleEN = titleEN;
+        this.descriptionEN = descriptionEN;
+        this.titlePT = titlePT;
+        this.descriptionPT = descriptionPT;
     }
 
     public Long getId() {
@@ -80,24 +86,40 @@ public class Quiz implements Serializable{
         this.id = id;
     }
 
-    public String getTitle() {
-        return title;
+    public String getTitleEN() {
+        return titleEN;
     }
 
-    public String getDescription() {
-        return description;
+    public String getDescriptionEN() {
+        return descriptionEN;
+    }
+    
+    public String getTitlePT() {
+        return titlePT;
+    }
+
+    public String getDescriptionPT() {
+        return descriptionPT;
     }
 
     public List<Question> getQuestions() {
         return questions;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setTitlePT(String title) {
+        this.titlePT = title;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setDescriptionPT(String description) {
+        this.descriptionPT = description;
+    }
+    
+    public void setTitleEN(String title) {
+        this.titleEN = title;
+    }
+
+    public void setDescriptionEN(String description) {
+        this.descriptionEN = description;
     }
 
     public void setQuestions(List<Question> questions) {
@@ -115,7 +137,7 @@ public class Quiz implements Serializable{
 
     @Override
     public String toString() {
-        return "Quiz{" + "id=" + id + ", title=" + title + ", description=" + description + ", questions=" + questions + '}';
+        return "Quiz{" + "id=" + id + ", title=" + titleEN + ", description=" + descriptionEN + ", questions=" + questions + '}';
     }
     
     
